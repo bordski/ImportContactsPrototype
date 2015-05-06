@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ContactListTableViewController.h
 //  ImportContactsPrototype
 //
 //  Created by Michael Xernan Bordonada on 5/6/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ContactListTableViewController : UIViewController
 
 @end
-

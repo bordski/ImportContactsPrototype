@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		24530B4F1AF9A79300C89BEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B4E1AF9A79300C89BEB /* main.m */; };
 		24530B521AF9A79300C89BEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B511AF9A79300C89BEB /* AppDelegate.m */; };
-		24530B551AF9A79300C89BEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B541AF9A79300C89BEB /* ViewController.m */; };
 		24530B581AF9A79300C89BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24530B561AF9A79300C89BEB /* Main.storyboard */; };
 		24530B5A1AF9A79300C89BEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24530B591AF9A79300C89BEB /* Images.xcassets */; };
 		24530B5D1AF9A79300C89BEB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24530B5B1AF9A79300C89BEB /* LaunchScreen.xib */; };
 		24530B691AF9A79300C89BEB /* ImportContactsPrototypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B681AF9A79300C89BEB /* ImportContactsPrototypeTests.m */; };
+		24530B731AF9AC6600C89BEB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24530B721AF9AC6600C89BEB /* AddressBook.framework */; };
+		24530B751AF9AC6A00C89BEB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24530B741AF9AC6A00C89BEB /* AddressBookUI.framework */; };
+		24530B7C1AF9AEA900C89BEB /* ContactListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B7B1AF9AEA900C89BEB /* ContactListTableViewController.m */; };
+		24530B811AF9EA7F00C89BEB /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B801AF9EA7E00C89BEB /* ContactModel.m */; };
+		24F7BA8F1AFA1E4A006375A4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7BA8E1AFA1E4A006375A4 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +36,19 @@
 		24530B4E1AF9A79300C89BEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24530B501AF9A79300C89BEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24530B511AF9A79300C89BEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		24530B531AF9A79300C89BEB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		24530B541AF9A79300C89BEB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		24530B571AF9A79300C89BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24530B591AF9A79300C89BEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24530B5C1AF9A79300C89BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		24530B621AF9A79300C89BEB /* ImportContactsPrototypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImportContactsPrototypeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24530B671AF9A79300C89BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24530B681AF9A79300C89BEB /* ImportContactsPrototypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImportContactsPrototypeTests.m; sourceTree = "<group>"; };
+		24530B721AF9AC6600C89BEB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		24530B741AF9AC6A00C89BEB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		24530B7A1AF9AEA900C89BEB /* ContactListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTableViewController.h; sourceTree = "<group>"; };
+		24530B7B1AF9AEA900C89BEB /* ContactListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTableViewController.m; sourceTree = "<group>"; };
+		24530B7F1AF9EA7E00C89BEB /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
+		24530B801AF9EA7E00C89BEB /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactModel.m; sourceTree = "<group>"; };
+		24F7BA8E1AFA1E4A006375A4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F7BA8F1AFA1E4A006375A4 /* libz.dylib in Frameworks */,
+				24530B751AF9AC6A00C89BEB /* AddressBookUI.framework in Frameworks */,
+				24530B731AF9AC6600C89BEB /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,7 @@
 		24530B401AF9A79300C89BEB = {
 			isa = PBXGroup;
 			children = (
+				24F7BA8E1AFA1E4A006375A4 /* libz.dylib */,
 				24530B4B1AF9A79300C89BEB /* ImportContactsPrototype */,
 				24530B651AF9A79300C89BEB /* ImportContactsPrototypeTests */,
 				24530B4A1AF9A79300C89BEB /* Products */,
@@ -81,10 +94,11 @@
 		24530B4B1AF9A79300C89BEB /* ImportContactsPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				24530B7D1AF9EA6B00C89BEB /* Models */,
+				24530B781AF9AE8D00C89BEB /* Controllers */,
+				24530B761AF9AE0A00C89BEB /* Resources */,
 				24530B501AF9A79300C89BEB /* AppDelegate.h */,
 				24530B511AF9A79300C89BEB /* AppDelegate.m */,
-				24530B531AF9A79300C89BEB /* ViewController.h */,
-				24530B541AF9A79300C89BEB /* ViewController.m */,
 				24530B561AF9A79300C89BEB /* Main.storyboard */,
 				24530B591AF9A79300C89BEB /* Images.xcassets */,
 				24530B5B1AF9A79300C89BEB /* LaunchScreen.xib */,
@@ -117,6 +131,57 @@
 				24530B671AF9A79300C89BEB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24530B761AF9AE0A00C89BEB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				24530B771AF9AE1300C89BEB /* Frameworks */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		24530B771AF9AE1300C89BEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24530B741AF9AC6A00C89BEB /* AddressBookUI.framework */,
+				24530B721AF9AC6600C89BEB /* AddressBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24530B781AF9AE8D00C89BEB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24530B791AF9AE8D00C89BEB /* ContactListTableViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		24530B791AF9AE8D00C89BEB /* ContactListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				24530B7A1AF9AEA900C89BEB /* ContactListTableViewController.h */,
+				24530B7B1AF9AEA900C89BEB /* ContactListTableViewController.m */,
+			);
+			path = ContactListTableViewController;
+			sourceTree = "<group>";
+		};
+		24530B7D1AF9EA6B00C89BEB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				24530B7E1AF9EA6B00C89BEB /* ContactModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		24530B7E1AF9EA6B00C89BEB /* ContactModel */ = {
+			isa = PBXGroup;
+			children = (
+				24530B7F1AF9EA7E00C89BEB /* ContactModel.h */,
+				24530B801AF9EA7E00C89BEB /* ContactModel.m */,
+			);
+			path = ContactModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +233,7 @@
 				TargetAttributes = {
 					24530B481AF9A79300C89BEB = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = PB572UCLN9;
 					};
 					24530B611AF9A79300C89BEB = {
 						CreatedOnToolsVersion = 6.2;
@@ -219,8 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24530B551AF9A79300C89BEB /* ViewController.m in Sources */,
+				24530B7C1AF9AEA900C89BEB /* ContactListTableViewController.m in Sources */,
 				24530B521AF9A79300C89BEB /* AppDelegate.m in Sources */,
+				24530B811AF9EA7F00C89BEB /* ContactModel.m in Sources */,
 				24530B4F1AF9A79300C89BEB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,7 +412,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Xernan Bordonada (VRHDVUNK6H)";
 				INFOPLIST_FILE = ImportContactsPrototype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,7 +424,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Xernan Bordonada (VRHDVUNK6H)";
 				INFOPLIST_FILE = ImportContactsPrototype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,6 +485,7 @@
 				24530B6E1AF9A79300C89BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24530B6F1AF9A79300C89BEB /* Build configuration list for PBXNativeTarget "ImportContactsPrototypeTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +494,7 @@
 				24530B711AF9A79300C89BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
