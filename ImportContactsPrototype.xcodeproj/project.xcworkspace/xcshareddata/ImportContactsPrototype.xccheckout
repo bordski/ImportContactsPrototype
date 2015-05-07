@@ -8,6 +8,7 @@
 	<string>BBC2DAF4-A824-4653-9355-E547ED2B4C72</string>
 	<key>IDESourceControlProjectName</key>
 	<string>project</string>
+	<string>ImportContactsPrototype</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CC4D796551E694D2F95C84BE9ABE4462C40BBC8A</key>
@@ -15,6 +16,7 @@
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ImportContactsPrototype.xcodeproj/project.xcworkspace</string>
+	<string>ImportContactsPrototype.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CC4D796551E694D2F95C84BE9ABE4462C40BBC8A</key>
