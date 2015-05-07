@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BBC2DAF4-A824-4653-9355-E547ED2B4C72</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CC4D796551E694D2F95C84BE9ABE4462C40BBC8A</key>
+		<string>https://github.com/bordski/ImportContactsPrototype.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ImportContactsPrototype.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CC4D796551E694D2F95C84BE9ABE4462C40BBC8A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bordski/ImportContactsPrototype.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CC4D796551E694D2F95C84BE9ABE4462C40BBC8A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CC4D796551E694D2F95C84BE9ABE4462C40BBC8A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ImportContactsPrototype</string>
+		</dict>
+	</array>
+</dict>
+</plist>

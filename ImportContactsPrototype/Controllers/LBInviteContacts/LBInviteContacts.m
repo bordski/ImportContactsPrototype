@@ -1,27 +1,36 @@
 //
-//  ContactListTableViewController.m
+//  LBInviteContacts.m
 //  ImportContactsPrototype
 //
-//  Created by Michael Xernan Bordonada on 5/6/15.
+//  Created by Michael Xernan Bordonada on 5/7/15.
 //  Copyright (c) 2015 Michael Xernan Bordonada. All rights reserved.
 //
-
 #import <AddressBook/AddressBook.h>
 
-#import "ContactListTableViewController.h"
+#import "LBInviteContacts.h"
+#import "LBInviteContactCell.h"
 #import "ContactModel.h"
+#import "MAInterface.h"
+#import "BLConstant.h"
+#import "LBIconFonts.h"
 
-@interface ContactListTableViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+
+@interface LBInviteContacts () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *iconf_check;
+@property (weak, nonatomic) IBOutlet UILabel *iconf_search;
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView_list;
+
+@property (weak, nonatomic) IBOutlet UITextField *textField_search;
+@property (weak, nonatomic) IBOutlet UIButton *button_check;
+@property (weak, nonatomic) IBOutlet UIButton *button_skip;
+@property (weak, nonatomic) IBOutlet UIButton *button_proceed;
 
 //alert variables
 @property (nonatomic, strong) UIAlertView *alertMessageView;
 @property (nonatomic, strong) NSString *alertMessage;
-
-//temporary property variables
-@property (nonatomic, strong) NSArray *dummyContacts;
 
 //addressbook variables
 @property (nonatomic, readonly) ABAddressBookRef addressbookReference;
@@ -36,16 +45,13 @@
 
 @end
 
-@implementation ContactListTableViewController
+@implementation LBInviteContacts
 
 #pragma mark - Synthesizers
 
 //alert variables
 @synthesize alertMessageView = _alertMessageView;
 @synthesize alertMessage = _alertMessage;
-
-//temporary synthesize variable
-@synthesize dummyContacts = _dummyContacts;
 
 //addressbook variables
 @synthesize addressbookReference = _addressbookReference;
@@ -58,6 +64,26 @@
 @synthesize filterString = _filterString;
 @synthesize filterPredicate = _filterPredicate;
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.button_check setSelected:TRUE];
+    [MAInterface convertToIconFont:self.iconf_check iconText:blumrcon_checkbox_1_on fontSize:26.0f];
+    self.iconf_check.textColor = blumr_color_blue;
+    [MAInterface convertToIconFont:self.iconf_search iconText:lb_blumrcon_search fontSize:26.0f];
+    self.iconf_search.textColor = blumr_color_blue;
+    [self requestAddressbookPermission];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 #pragma mark - Overridden Getters
 
 - (UIAlertView *)alertMessageView {
@@ -66,25 +92,6 @@
     }
     
     return _alertMessageView;
-}
-
-//temporary getter
-- (NSArray *)dummyContacts {
-    if (_dummyContacts == nil) {
-        _dummyContacts = @[@{@"firstname" : @"Michael Xernan",
-                             @"lastname" : @"Bordonada"},
-                           @{@"firstname" : @"Mar",
-                             @"lastname" : @"Meija"},
-                           @{@"email" : @[@"jerome@blumr.com"]},
-                           @{@"email" : @[@"enzen@blumr.com"]},
-                           @{@"email" : @[@"jobert@blumr.com"]},
-                           @{@"mobilenumber" : @[@"09152229988", @"09178334444"]},
-                           @{@"mobilenumber" : @[@"09178334422"]},
-                           @{@"mobilenumber" : @[@"09191112222", @"09861234321", @"09155556666"]}];
-        
-    }
-    
-    return _dummyContacts;
 }
 
 //addressbook getters
@@ -158,39 +165,52 @@
     } else {
         self.filteredContactCollection = [self.contactCollection filteredArrayUsingPredicate:self.filterPredicate].mutableCopy;
     }
-    [self.tableView reloadData];
+    [self.tableView_list reloadData];
 }
 
-#pragma mark - View Life Cycle
+#pragma mark-
+#pragma mark IBAction
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (IBAction)buttonProceed:(id)sender {
+    NSArray *filteredSelectedContacts = [self getContactsWithSelectedValueOf:TRUE];
+    NSLog(@"the selected contacts are:%@", [filteredSelectedContacts valueForKey:@"contactRepresentation"]);
+    if (filteredSelectedContacts.count == 0) {
+//#warning hadle alert
+        self.alertMessage = @"Please select at least one contact";
+    }
+//    [self.delegate inviteContactsToOtherView:TRUE];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self requestAddressbookPermission];
+- (IBAction)buttonSkip:(id)sender {
+//    [self.delegate inviteContactsToOtherView:FALSE];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (IBAction)buttonCheckAll:(id)sender
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSArray *filteredContacts = [self getContactsWithSelectedValueOf:self.button_check.isSelected];
+        if (filteredContacts.count == 0) {
+            return;
+        }
+        
+        [filteredContacts enumerateObjectsUsingBlock:^(ContactModel *contact, NSUInteger idx, BOOL *stop) {
+            contact.isSelected = !self.button_check.isSelected;
+        }];
     
-    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView_list reloadData];
+            [self.button_check setSelected:!self.button_check.isSelected];
+            if (self.button_check.isSelected == TRUE) {
+                [MAInterface convertToIconFont:self.iconf_check iconText:blumrcon_checkbox_1_on fontSize:26.0f];
+            } else {
+                [MAInterface convertToIconFont:self.iconf_check iconText:blumrcon_checkbox_1_off fontSize:26.0f];
+            }
+            
+        });
+    });
 }
 
-#pragma mark - Memory Handlers
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Addressbook permission handlers
 
@@ -199,8 +219,7 @@
         ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
             dispatch_sync(dispatch_get_main_queue(), ^{
                 if (granted == TRUE) {
-                    [self createDummyData];
-//                    [self createDummyData];
+                    //                    [self createDummyData];
                     [self fetchAndInsertContacsToArray:self.contactCollection];
                 } else {
                     self.alertMessage = @"Application needs to access the addressbook in order for it to run properly, please allow access";
@@ -229,57 +248,6 @@
 
 #pragma mark - Addressbook operations
 
-- (void)createContactUsingDictionary:(NSDictionary *)userInformation {
-    
-    if (userInformation == nil) {
-        NSLog(@"%s user information dictionary cannot be nil", __PRETTY_FUNCTION__);
-        return;
-    }
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        
-        ABRecordRef person = ABPersonCreate();
-        
-        [userInformation enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
-    
-            ABPropertyID propertyTitle = 0;
-            CFStringRef propertyLabel = NULL;
-            if ([key isEqualToString:@"firstname"]) {
-                propertyTitle = kABPersonFirstNameProperty;
-            } else if ([key isEqualToString:@"lastname"]) {
-                propertyTitle = kABPersonLastNameProperty;
-            } else if ([key isEqualToString:@"email"]) {
-                propertyTitle = kABPersonEmailProperty;
-                propertyLabel = kABHomeLabel;
-            } else if ([key isEqualToString:@"mobilenumber"]) {
-                propertyTitle = kABPersonPhoneProperty;
-                propertyLabel = kABPersonPhoneMobileLabel;
-            }
-            
-            if ([obj isKindOfClass:[NSString class]]) {
-                //this is of single value type string
-                ABRecordSetValue(person, propertyTitle, (__bridge CFStringRef)obj, nil);
-            } else if ([obj isKindOfClass:[NSArray class]]) {
-                //this is of multivalue type array
-                ABMutableMultiValueRef multiValueItem = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-                for (NSString *numberToInsert in (NSArray *)obj) {
-                    ABMultiValueAddValueAndLabel(multiValueItem, (__bridge CFStringRef)numberToInsert, propertyLabel, NULL);
-                }
-                ABRecordSetValue(person, propertyTitle, multiValueItem, nil);
-            } else {
-                
-            }
-        }];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            ABAddressBookAddRecord(self.addressbookReference, person, nil);
-            ABAddressBookSave(self.addressbookReference, nil);
-        });
-        
-        
-    });
-
-}
-
 - (void)fetchAndInsertContacsToArray:(NSMutableArray *)array {
     @autoreleasepool {
         
@@ -292,7 +260,7 @@
                 ABRecordRef rawContact = (__bridge ABRecordRef)obj;
                 
                 ContactModel *contact = [self createContactModelUsingABRecordRef:rawContact];
-        
+                
                 if ([contact.firstname isEqualToString:@""] == FALSE && [contact.lastname isEqualToString:@""] == FALSE) {
                     //has name
                     [self insertNewCellUsingValues:contact];
@@ -303,8 +271,6 @@
                     //has number
                     [self insertNewCellUsingValues:contact];
                 }
-                
-                [self insertNewCellUsingValues:contact];
                 
             }];
         });
@@ -318,27 +284,26 @@
     
     ABMutableMultiValueRef raweMail = ABRecordCopyValue(rawContact, kABPersonEmailProperty);
     ABMutableMultiValueRef rawMobilenumber = ABRecordCopyValue(rawContact, kABPersonPhoneProperty);
-
+    
     contact.isSelected = TRUE;
     contact.contactID = [NSNumber numberWithInt:ABRecordGetRecordID(rawContact)];
     contact.firstname = (__bridge NSString *)ABRecordCopyValue(rawContact, kABPersonFirstNameProperty);
     contact.lastname = (__bridge NSString *)ABRecordCopyValue(rawContact, kABPersonLastNameProperty);
     contact.emailCollection = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(raweMail);
     contact.numberCollection = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(rawMobilenumber);
-    contact.photoData = (__bridge NSData *)ABRecordCopyValue(rawContact, kABPersonImageFormatThumbnail);
-    
+    NSString *base64PhotoString = (__bridge NSString *)ABRecordCopyValue(rawContact, kABPersonImageFormatThumbnail);
+    if (base64PhotoString != nil) {
+        contact.photoData = [[NSData alloc] initWithBase64EncodedString:base64PhotoString options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    }
     return contact;
 }
 
-#pragma mark - Prototype Data Sampling
+#pragma mark - Model Fetching Handlers
 
-- (void)createDummyData {
-    
-    [self.dummyContacts enumerateObjectsUsingBlock:^(NSDictionary *dummyData, NSUInteger idx, BOOL *stop) {
-        [self createContactUsingDictionary:dummyData];
-    }];
-    
-    [self fetchAndInsertContacsToArray:self.contactCollection];
+- (NSArray *)getContactsWithSelectedValueOf:(BOOL)selectedValue {
+    NSPredicate *filterUncheckedContacts = [NSPredicate predicateWithFormat:@"SELF.isSelected == %d", selectedValue];
+    NSArray *filteredContacts = [self.contactCollection filteredArrayUsingPredicate:filterUncheckedContacts];
+    return filteredContacts;
 }
 
 #pragma mark - Alert view delegate
@@ -349,14 +314,26 @@
     }
 }
 
-#pragma mark - Search bar delegate
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.filterString = searchText;
+#pragma mark - Text field delegate
+// Close keyboard when Enter or Done is pressed
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [self.textField_search resignFirstResponder];
+    
+    return NO;
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
+// String in Search textfield
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    
+    NSString *substring = [NSString stringWithString:textField.text];
+    substring = [substring stringByReplacingCharactersInRange:range withString:string];
+
+    self.filterString = substring;
+    
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -377,10 +354,10 @@
             
         } else if ([self.filterString isEqualToString:@""]) {
             [self.filteredContactCollection insertObject:values atIndex:nextIndex];
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView_list insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
         } else if ([@[values] filteredArrayUsingPredicate:self.filterPredicate].count > 0) {
             [self.filteredContactCollection insertObject:values atIndex:nextIndex];
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView_list insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         
     });
@@ -400,66 +377,35 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell" forIndexPath:indexPath];
-    UIButton *availabilityCheckbox = (UIButton *)[cell viewWithTag:1];
-    UILabel *availableContactTitle = (UILabel *)[cell viewWithTag:3];
-
-    ContactModel *contact = self.filteredContactCollection[indexPath.row];
-    availableContactTitle.text = contact.contactRepresentation;
+    LBInviteContactCell *cell = (LBInviteContactCell *)[tableView dequeueReusableCellWithIdentifier:@"contactList" forIndexPath:indexPath];
     
-    if (contact.isSelected == TRUE) {
-        availabilityCheckbox.backgroundColor = [UIColor blueColor];
-    } else {
-        availabilityCheckbox.backgroundColor = [UIColor greenColor];
-    }
-
+    ContactModel *contact = self.filteredContactCollection[indexPath.row];
+    cell.contactModel = contact;
+    
     return cell;
 }
 
 - (void)didPressAvailabilityCheckbox:(NSIndexPath *)indexPath {
     ContactModel *contact = self.filteredContactCollection[indexPath.row];
     contact.isSelected = !contact.isSelected;
-  
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    if (contact.isSelected == FALSE) {
+        [MAInterface convertToIconFont:self.iconf_check iconText:blumrcon_checkbox_1_off fontSize:26.0f];
+        [self.button_check setSelected:FALSE];
+    } else {
+        NSArray *filteredContacts = [self getContactsWithSelectedValueOf:FALSE];
+        if (filteredContacts.count == 0) {
+            [MAInterface convertToIconFont:self.iconf_check iconText:blumrcon_checkbox_1_on fontSize:26.0f];
+            [self.button_check setSelected:TRUE];
+        }
+    }
+    [self.tableView_list reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
     [self didPressAvailabilityCheckbox:indexPath];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

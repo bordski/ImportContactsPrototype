@@ -17,6 +17,19 @@
 		24530B751AF9AC6A00C89BEB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24530B741AF9AC6A00C89BEB /* AddressBookUI.framework */; };
 		24530B7C1AF9AEA900C89BEB /* ContactListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B7B1AF9AEA900C89BEB /* ContactListTableViewController.m */; };
 		24530B811AF9EA7F00C89BEB /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24530B801AF9EA7E00C89BEB /* ContactModel.m */; };
+		24534BD11AFB505A00A95EFB /* LBInviteContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 24534BD01AFB505A00A95EFB /* LBInviteContacts.m */; };
+		24534BD51AFB514C00A95EFB /* LBInviteContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24534BD41AFB514C00A95EFB /* LBInviteContactCell.m */; };
+		247505291AFB62620081F1FE /* Blumrblack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 247505231AFB62620081F1FE /* Blumrblack.ttf */; };
+		2475052A1AFB62620081F1FE /* blumrcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 247505241AFB62620081F1FE /* blumrcons.ttf */; };
+		2475052B1AFB62620081F1FE /* blumrlight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 247505251AFB62620081F1FE /* blumrlight.ttf */; };
+		2475052C1AFB62620081F1FE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 247505261AFB62620081F1FE /* Roboto-Bold.ttf */; };
+		2475052D1AFB62620081F1FE /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 247505271AFB62620081F1FE /* Roboto-Light.ttf */; };
+		2475052E1AFB62620081F1FE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 247505281AFB62620081F1FE /* Roboto-Regular.ttf */; };
+		247505331AFB62D30081F1FE /* MAInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 247505321AFB62D30081F1FE /* MAInterface.m */; };
+		247505381AFB64CD0081F1FE /* LBRegisterValidationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 247505371AFB64CD0081F1FE /* LBRegisterValidationView.m */; };
+		247505411AFB65C60081F1FE /* FFNetworkDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 2475053D1AFB65C60081F1FE /* FFNetworkDetect.m */; };
+		247505451AFB66150081F1FE /* LBUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 247505441AFB66150081F1FE /* LBUserData.m */; };
+		247505481AFB66350081F1FE /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 247505471AFB66350081F1FE /* UserData.m */; };
 		24F7BA8F1AFA1E4A006375A4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7BA8E1AFA1E4A006375A4 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +61,29 @@
 		24530B7B1AF9AEA900C89BEB /* ContactListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTableViewController.m; sourceTree = "<group>"; };
 		24530B7F1AF9EA7E00C89BEB /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
 		24530B801AF9EA7E00C89BEB /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactModel.m; sourceTree = "<group>"; };
+		24534BCF1AFB505A00A95EFB /* LBInviteContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBInviteContacts.h; sourceTree = "<group>"; };
+		24534BD01AFB505A00A95EFB /* LBInviteContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBInviteContacts.m; sourceTree = "<group>"; };
+		24534BD31AFB514C00A95EFB /* LBInviteContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBInviteContactCell.h; sourceTree = "<group>"; };
+		24534BD41AFB514C00A95EFB /* LBInviteContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBInviteContactCell.m; sourceTree = "<group>"; };
+		24534BD61AFB531000A95EFB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		247505231AFB62620081F1FE /* Blumrblack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blumrblack.ttf; sourceTree = "<group>"; };
+		247505241AFB62620081F1FE /* blumrcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blumrcons.ttf; sourceTree = "<group>"; };
+		247505251AFB62620081F1FE /* blumrlight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blumrlight.ttf; sourceTree = "<group>"; };
+		247505261AFB62620081F1FE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		247505271AFB62620081F1FE /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		247505281AFB62620081F1FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		247505311AFB62D30081F1FE /* MAInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAInterface.h; sourceTree = "<group>"; };
+		247505321AFB62D30081F1FE /* MAInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAInterface.m; sourceTree = "<group>"; };
+		247505341AFB636F0081F1FE /* BLConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BLConstant.h; path = ../../Models/ContactModel/BLConstant.h; sourceTree = "<group>"; };
+		247505361AFB64CD0081F1FE /* LBRegisterValidationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBRegisterValidationView.h; sourceTree = "<group>"; };
+		247505371AFB64CD0081F1FE /* LBRegisterValidationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBRegisterValidationView.m; sourceTree = "<group>"; };
+		247505391AFB657E0081F1FE /* LBIconFonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBIconFonts.h; sourceTree = "<group>"; };
+		2475053C1AFB65C60081F1FE /* FFNetworkDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFNetworkDetect.h; sourceTree = "<group>"; };
+		2475053D1AFB65C60081F1FE /* FFNetworkDetect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNetworkDetect.m; sourceTree = "<group>"; };
+		247505431AFB66150081F1FE /* LBUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBUserData.h; sourceTree = "<group>"; };
+		247505441AFB66150081F1FE /* LBUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBUserData.m; sourceTree = "<group>"; };
+		247505461AFB66350081F1FE /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		247505471AFB66350081F1FE /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		24F7BA8E1AFA1E4A006375A4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -94,6 +130,7 @@
 		24530B4B1AF9A79300C89BEB /* ImportContactsPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				2475052F1AFB62D30081F1FE /* Modules */,
 				24530B7D1AF9EA6B00C89BEB /* Models */,
 				24530B781AF9AE8D00C89BEB /* Controllers */,
 				24530B761AF9AE0A00C89BEB /* Resources */,
@@ -102,6 +139,7 @@
 				24530B561AF9A79300C89BEB /* Main.storyboard */,
 				24530B591AF9A79300C89BEB /* Images.xcassets */,
 				24530B5B1AF9A79300C89BEB /* LaunchScreen.xib */,
+				24534BD61AFB531000A95EFB /* PrefixHeader.pch */,
 				24530B4C1AF9A79300C89BEB /* Supporting Files */,
 			);
 			path = ImportContactsPrototype;
@@ -136,6 +174,7 @@
 		24530B761AF9AE0A00C89BEB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				247505211AFB62620081F1FE /* Fonts */,
 				24530B771AF9AE1300C89BEB /* Frameworks */,
 			);
 			name = Resources;
@@ -153,6 +192,8 @@
 		24530B781AF9AE8D00C89BEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				24534BD21AFB514C00A95EFB /* LBInviteContactCell */,
+				24534BCE1AFB501400A95EFB /* LBInviteContacts */,
 				24530B791AF9AE8D00C89BEB /* ContactListTableViewController */,
 			);
 			path = Controllers;
@@ -182,6 +223,80 @@
 				24530B801AF9EA7E00C89BEB /* ContactModel.m */,
 			);
 			path = ContactModel;
+			sourceTree = "<group>";
+		};
+		24534BCE1AFB501400A95EFB /* LBInviteContacts */ = {
+			isa = PBXGroup;
+			children = (
+				24534BCF1AFB505A00A95EFB /* LBInviteContacts.h */,
+				24534BD01AFB505A00A95EFB /* LBInviteContacts.m */,
+			);
+			path = LBInviteContacts;
+			sourceTree = "<group>";
+		};
+		24534BD21AFB514C00A95EFB /* LBInviteContactCell */ = {
+			isa = PBXGroup;
+			children = (
+				24534BD31AFB514C00A95EFB /* LBInviteContactCell.h */,
+				24534BD41AFB514C00A95EFB /* LBInviteContactCell.m */,
+			);
+			path = LBInviteContactCell;
+			sourceTree = "<group>";
+		};
+		247505211AFB62620081F1FE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				247505221AFB62620081F1FE /* iconfonts */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		247505221AFB62620081F1FE /* iconfonts */ = {
+			isa = PBXGroup;
+			children = (
+				247505231AFB62620081F1FE /* Blumrblack.ttf */,
+				247505241AFB62620081F1FE /* blumrcons.ttf */,
+				247505251AFB62620081F1FE /* blumrlight.ttf */,
+				247505261AFB62620081F1FE /* Roboto-Bold.ttf */,
+				247505271AFB62620081F1FE /* Roboto-Light.ttf */,
+				247505281AFB62620081F1FE /* Roboto-Regular.ttf */,
+			);
+			path = iconfonts;
+			sourceTree = "<group>";
+		};
+		2475052F1AFB62D30081F1FE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				247505351AFB64CD0081F1FE /* others */,
+				247505301AFB62D30081F1FE /* MAInterface */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		247505301AFB62D30081F1FE /* MAInterface */ = {
+			isa = PBXGroup;
+			children = (
+				247505311AFB62D30081F1FE /* MAInterface.h */,
+				247505321AFB62D30081F1FE /* MAInterface.m */,
+			);
+			path = MAInterface;
+			sourceTree = "<group>";
+		};
+		247505351AFB64CD0081F1FE /* others */ = {
+			isa = PBXGroup;
+			children = (
+				247505461AFB66350081F1FE /* UserData.h */,
+				247505471AFB66350081F1FE /* UserData.m */,
+				247505431AFB66150081F1FE /* LBUserData.h */,
+				247505441AFB66150081F1FE /* LBUserData.m */,
+				2475053C1AFB65C60081F1FE /* FFNetworkDetect.h */,
+				2475053D1AFB65C60081F1FE /* FFNetworkDetect.m */,
+				247505341AFB636F0081F1FE /* BLConstant.h */,
+				247505391AFB657E0081F1FE /* LBIconFonts.h */,
+				247505361AFB64CD0081F1FE /* LBRegisterValidationView.h */,
+				247505371AFB64CD0081F1FE /* LBRegisterValidationView.m */,
+			);
+			path = others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +380,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2475052C1AFB62620081F1FE /* Roboto-Bold.ttf in Resources */,
 				24530B581AF9A79300C89BEB /* Main.storyboard in Resources */,
+				247505291AFB62620081F1FE /* Blumrblack.ttf in Resources */,
 				24530B5D1AF9A79300C89BEB /* LaunchScreen.xib in Resources */,
 				24530B5A1AF9A79300C89BEB /* Images.xcassets in Resources */,
+				2475052B1AFB62620081F1FE /* blumrlight.ttf in Resources */,
+				2475052E1AFB62620081F1FE /* Roboto-Regular.ttf in Resources */,
+				2475052D1AFB62620081F1FE /* Roboto-Light.ttf in Resources */,
+				2475052A1AFB62620081F1FE /* blumrcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +406,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24534BD11AFB505A00A95EFB /* LBInviteContacts.m in Sources */,
+				24534BD51AFB514C00A95EFB /* LBInviteContactCell.m in Sources */,
 				24530B7C1AF9AEA900C89BEB /* ContactListTableViewController.m in Sources */,
+				247505411AFB65C60081F1FE /* FFNetworkDetect.m in Sources */,
 				24530B521AF9A79300C89BEB /* AppDelegate.m in Sources */,
 				24530B811AF9EA7F00C89BEB /* ContactModel.m in Sources */,
 				24530B4F1AF9A79300C89BEB /* main.m in Sources */,
+				247505381AFB64CD0081F1FE /* LBRegisterValidationView.m in Sources */,
+				247505451AFB66150081F1FE /* LBUserData.m in Sources */,
+				247505331AFB62D30081F1FE /* MAInterface.m in Sources */,
+				247505481AFB66350081F1FE /* UserData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Xernan Bordonada (VRHDVUNK6H)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = ImportContactsPrototype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,6 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Xernan Bordonada (VRHDVUNK6H)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = ImportContactsPrototype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
